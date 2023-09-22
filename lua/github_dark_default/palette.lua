@@ -1,53 +1,47 @@
 local colors = {
-	bg = "#0D1117",
-	fg = "#e6edf3", -- actual line number, namaspaces
+    bg = "#0D1117",
+    fg = "#e6edf3",
 
-	-- backgrounds
-	bg_01 = "#010409", -- terminal nvimtree
-	bg_02 = "#0C1015", -- nvim tree line
-	bg_03 = "#30363D", -- modes
-	bg_04 = "#171B22", -- cursorline
+    bg_01 = "#010409",
+    bg_02 = "#0C1015",
+    bg_04 = "#171B22",
+    bg_05 = "#343942",
+    bg_06 = "#161B22",
+    bg_07 = "#24292F",
+    bg_08 = "#090c10",
+    bg_09 = "#080a0e",
 
-	-- foregrounds
-	fg_01 = "#6E7681", -- line numbers
-	fg_02 = "#8B949E", -- comments
-	fg_03 = "#C9D1D9", -- maybe types, self
-	fg_04 = "#9EA4AA", -- unused variable
-	fg_05 = "#6E7681", -- nvim tree gitignored
+    -- foregrounds
+    fg_01 = "#6E7681",
+    fg_02 = "#8B949E",
+    fg_03 = "#C9D1D9",
+    fg_04 = "#9EA4AA",
+    fg_05 = "#6E7681",
+    fg_06 = "#7D8590",
+    fg_07 = "#272C32",
+    fg_08 = "#41464B",
 
-	-- red
-	red_01 = "#ff7b72", -- keywords
-	red_02 = "#CF222E", -- danger or closed
-	red_03 = "#6B2A2B", -- gitsign removed
-	red_04 = "#BA3E39", -- nvim tree deleted
-	red_05 = "#F14C4C", -- error
+    red_01 = "#ff7b72",
+    red_02 = "#CF222E",
 
-	-- orange
-	orange_01 = "#ffa657", -- classes namaspaces, enum member
-	orange_02 = "#BC4C00", -- severe
+    orange_01 = "#ffa657",
+    orange_02 = "#BC4C00",
 
-	-- yellow
-	yellow_01 = "#BF8700", -- attention
-	yellow_02 = "#533D12", -- git sign changed
-	yellow_03 = "#9E741C", -- nvim tree git modified
-	yellow_04 = "#CCA700", -- warning
+    yellow_01 = "#BF8700",
+    yellow_02 = "#c09553",
+    yellow_03 = "#5C471C",
 
-	-- green
-	green_01 = "#2DA44E", -- success or open
-	green_02 = "#1A4A29", -- git sign added
-	green_03 = "#2F8C3E", -- git untracked and staged
-	green_04 = "#7ee787", -- html tags
+    green_01 = "#2DA44E",
+    green_04 = "#7ee787",
 
-	-- cyan
-	cyan_01 = "#a5d6ff", -- strings
-	cyan_02 = "#79c0ff", -- constant and numbers, true false, properties, html properties
+    cyan_01 = "#a5d6ff",
+    cyan_02 = "#79c0ff",
 
-	-- blue
-	blue_01 = "#0969DA", -- accent
+    blue_01 = "#0969DA",
+    blue_02 = "#193047",
 
-	-- purple
-	purple_01 = "#d2a8ff", -- functions methods
-	purple_02 = "#8250DF", -- done
+    purple_01 = "#d2a8ff",
+    purple_02 = "#8250DF",
 }
 
 return colors

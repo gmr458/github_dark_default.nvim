@@ -6,25 +6,25 @@ local M = {}
 --- @overload fun(config: Config)
 function M.get(config)
     local diagnostic = {
-        error = colors.red_05,
-        warn = colors.yellow_04,
-        info = colors.blue_01,
-        hint = colors.green_01,
+        error = colors.red_02,
+        warn = colors.yellow_01,
+        info = colors.cyan_02,
+        hint = colors.blue_01,
         unnecessary = colors.fg_04,
     }
 
     local git = {
         signs = {
-            add = colors.green_02,
-            delete = colors.red_03,
-            change = colors.yellow_02,
+            add = colors.green_01,
+            delete = colors.red_02,
+            change = colors.yellow_01,
         },
         status = {
             ignored = colors.fg_05,
-            untracked = colors.green_03,
-            staged = colors.green_03,
-            deleted = colors.red_04,
-            modified = colors.yellow_03,
+            untracked = colors.green_01,
+            staged = colors.green_01,
+            deleted = colors.red_02,
+            modified = colors.yellow_01,
         },
         -- diff = {
         --     add = colors.green_04,
@@ -37,15 +37,15 @@ function M.get(config)
     return {
         -- Editor
 
-        ["Conceal"] = { bg = colors.bg_12 },
-        ["Cursor"] = { bg = colors.bg_14, fg = colors.fg_02 },
-        ["CursorIM"] = { bg = colors.bg_14, fg = colors.fg_02 },
+        ["Conceal"] = { bg = colors.bg_05 },
+        ["Cursor"] = { bg = colors.bg, fg = colors.fg },
+        ["CursorIM"] = { bg = colors.bg, fg = colors.fg },
         ["CursorLine"] = {
-            bg = config.transparent_background and colors.none or (config.cursorline and colors.bg_03 or colors.none),
+            bg = config.transparent_background and colors.none or (config.cursorline and colors.bg_04 or colors.none),
         },
         ["CursorLineNr"] = {
-            bg = config.transparent_background and colors.none or (config.cursorline and colors.bg_03 or colors.none),
-            fg = colors.fg_13,
+            bg = config.transparent_background and colors.none or (config.cursorline and colors.bg_04 or colors.none),
+            fg = colors.fg,
         },
         ["Directory"] = { fg = colors.yellow_02 },
         -- ["DiffAdd"] = { bg = git.diff.add },
@@ -58,20 +58,20 @@ function M.get(config)
         ["FoldColumn"] = { bg = colors.bg, fg = colors.bg },
         ["Folded"] = { bg = colors.blue_05 },
         ["FloatBorder"] = {
-            bg = config.transparent_background and colors.none or colors.bg,
-            fg = colors.bg_12,
+            bg = config.transparent_background and colors.none or colors.bg_09,
+            fg = config.transparent_background and colors.fg_03 or colors.bg_09,
         },
-        ["lCursor"] = { bg = colors.bg_14, fg = colors.fg_02 },
+        ["lCursor"] = { bg = colors.bg, fg = colors.fg },
         ["LineNr"] = {
             bg = config.transparent_background and colors.none or colors.bg,
-            fg = colors.fg_07,
+            fg = colors.fg_01,
         },
         ["Normal"] = {
             bg = config.transparent_background and colors.none or colors.bg,
             fg = colors.fg,
         },
-        ["NormalFloat"] = { bg = config.transparent_background and colors.none or colors.bg },
-        ["Search"] = { bg = colors.brown_01 },
+        ["NormalFloat"] = { bg = config.transparent_background and colors.none or colors.bg_09 },
+        ["Search"] = { bg = colors.yellow_03 },
         ["SignColumn"] = { bg = colors.none },
         ["SpellBad"] = { sp = colors.red_03, undercurl = config.undercurl and term_supports_undercurl() },
         ["SpellCap"] = { sp = colors.yellow_05, undercurl = config.undercurl and term_supports_undercurl() },
@@ -80,9 +80,9 @@ function M.get(config)
         ["StatusLine"] = { bg = colors.none },
         ["TermCursor"] = { bg = colors.fg_14, fg = colors.bg_01 },
         ["Title"] = { fg = colors.fg_15 },
-        ["Visual"] = { bg = colors.blue_06 },
+        ["Visual"] = { bg = colors.blue_02 },
         ["WarningMsg"] = { fg = diagnostic.warn },
-        ["WinBar"] = { fg = colors.fg_11 },
+        ["WinBar"] = { fg = colors.fg_06 },
         ["WinSeparator"] = { fg = "#080A0E" },
 
         ------------------------------------------------------------------------------------------
@@ -132,7 +132,7 @@ function M.get(config)
 
         ["Special"] = { fg = colors.red_01 },
         ["SpecialChar"] = { fg = colors.red_01 },
-        ["Tag"] = { fg = colors.red_01 },
+        ["Tag"] = { fg = colors.green_04 },
         ["Delimiter"] = { fg = colors.red_01 },
         ["SpecialComment"] = { fg = colors.red_01 },
         ["Debug"] = { fg = colors.red_01 },
@@ -155,7 +155,7 @@ function M.get(config)
         ["@constructor"] = { fg = colors.fg_03 },
         ["@define"] = { fg = colors.red_01 },
         ["@exception"] = { fg = colors.red_01, italic = config.italic_keyword },
-        ["@field"] = { fg = colors.cyan_02 },
+        ["@field"] = { fg = colors.fg },
         ["@float"] = { fg = colors.cyan_02 },
         ["@function"] = { fg = colors.purple_01 },
         ["@function.builtin"] = { fg = colors.purple_01 },
@@ -172,14 +172,14 @@ function M.get(config)
         ["@operator"] = { fg = colors.red_01 },
         ["@parameter"] = { fg = colors.fg },
         ["@punctuation"] = { fg = colors.fg },
-        ["@property"] = { fg = colors.cyan_02 },
+        ["@property"] = { fg = colors.fg },
         ["@punctuation.delimiter"] = { fg = colors.fg },
         ["@repeat"] = { fg = colors.red_01, italic = config.italic_keyword },
         ["@storageclass"] = { fg = colors.fg_03, italic = config.italic_keyword },
         ["@string"] = { fg = colors.cyan_01 },
         ["@string.escape"] = { fg = colors.red_01 },
         ["@string.special"] = { fg = colors.red_01 },
-        ["@tag"] = { fg = colors.blue_12 },
+        ["@tag"] = { fg = colors.green_04 },
         ["@tag.attribute"] = { fg = colors.cyan_02 },
         ["@tag.delimiter"] = { fg = colors.fg },
         ["@text.literal"] = { link = "@string" },
@@ -195,79 +195,12 @@ function M.get(config)
         ["@variable"] = { fg = colors.fg },
         ["@variable.builtin"] = { link = "@variable" },
 
-        -- -- C#
-        -- ["@include.c_sharp"] = { fg = colors.blue_12 },
-        -- ["@type.builtin.c_sharp"] = { fg = colors.blue_12, italic = config.italic_keyword },
+        -- CSS
+        ["@property.css"] = { fg = colors.cyan_02 },
+        ["@type.css"] = { fg = colors.green_04 },
 
-        -- -- Go
-        -- ["@keyword.default.go"] = { fg = colors.purple_02 },
-        -- ["@type.builtin.map.go"] = { link = "@keyword" },
-
-        -- -- Go Checksum File
-        -- ["@attribute.gosum"] = { fg = colors.fg },
-        -- ["@number.gosum"] = { fg = colors.blue_12 },
-        -- ["@string.special.gosum"] = { fg = colors.blue_12 },
-        -- ["@symbol.gosum"] = { fg = colors.orange_01 },
-
-        -- -- HTML
-        -- ["@constant.html"] = { fg = colors.blue_12 },
-        -- ["@text.html"] = { fg = colors.fg },
-        -- ["@text.title.html"] = { fg = colors.fg },
-
-        -- -- Java
-        -- ["@function.builtin.super.java"] = { link = "@keyword" },
-        -- ["@include.java"] = { fg = colors.blue_12 },
-        -- ["@variable.builtin.this.java"] = { link = "@keyword" },
-
-        -- -- JavaScript
-        -- ["@constructor.constructor.javascript"] = { link = "@keyword" },
-        -- ["@keyword.coroutine.await.javascript"] = { fg = colors.purple_02 },
-        -- ["@keyword.default.javascript"] = { fg = colors.purple_02 },
-        -- ["@keyword.export.javascript"] = { fg = colors.purple_02 },
-        -- ["@number.infinity.javascript"] = { link = "@keyword" },
-        -- ["@variable.builtin.this.javascript"] = { link = "@keyword" },
-        -- ["@variable.builtin.super.javascript"] = { link = "@keyword" },
-
-        -- -- JSON
-        -- ["@label.json"] = { link = "@variable" },
-
-        -- -- JSON with comments
-        -- ["@label.jsonc"] = { link = "@variable" },
-
-        -- -- Lua
-        -- ["@constructor.lua"] = { link = "@punctuation" },
-
-        -- -- Python
-        -- ["@attribute.python"] = { link = "@function" },
-        -- ["@constructor.python"] = { link = "@function" },
-        -- ["@keyword.coroutine.await.python"] = { fg = colors.purple_02 },
-        -- ["@variable.builtin.self.python"] = { link = "@keyword" },
-
-        -- -- Ruby
-        -- ["@label.ruby"] = { link = "@variable" },
-
-        -- -- Rust
-        -- ["@constant.builtin.rust"] = { link = "@constant" },
-        -- ["@include.mod.rust"] = { fg = colors.blue_12 },
-        -- ["@include.use.rust"] = { fg = colors.blue_12 },
-        -- ["@keyword.coroutine.await.rust"] = { fg = colors.purple_02 },
-        -- ["@variable.builtin.rust"] = { link = "@keyword" },
-
-        -- -- TypeScript
-        -- ["@constructor.constructor.typescript"] = { link = "@keyword" },
-        -- ["@constant.builtin.undefined.typescript"] = { link = "@keyword" },
-        -- ["@keyword.coroutine.await.typescript"] = { fg = colors.purple_02 },
-        -- ["@keyword.default.typescript"] = { fg = colors.purple_02 },
-        -- ["@keyword.export.typescript"] = { fg = colors.purple_02 },
-        -- ["@number.infinity.typescript"] = { link = "@keyword" },
-        -- ["@variable.builtin.super.typescript"] = { link = "@keyword" },
-        -- ["@variable.builtin.this.typescript"] = { link = "@keyword" },
-
-        -- -- TypeScript JSX
-        -- ["@keyword.as.tsx"] = { fg = colors.purple_02 },
-        -- ["@keyword.coroutine.await.tsx"] = { fg = colors.purple_02 },
-        -- ["@keyword.default.tsx"] = { fg = colors.purple_02 },
-        -- ["@keyword.export.tsx"] = { fg = colors.purple_02 },
+        -- HTML
+        ["@operator.html"] = { fg = colors.fg },
 
         -- Semantic Tokens
         ["@lsp.type.annotation"] = { link = "Type" },
@@ -344,26 +277,52 @@ function M.get(config)
 
         -- nvim-telescope/telescope.nvim
 
-        ["TelescopeMatching"] = { fg = colors.blue_07 },
+        ["TelescopeMatching"] = { fg = colors.fg },
+
+        ["TelescopeMultiSelection"] = { fg = colors.fg_06 },
 
         -- Telescope Preview
-        ["TelescopePreviewBorder"] = { bg = colors.bg_02, fg = colors.bg_02 },
-        ["TelescopePreviewNormal"] = { bg = colors.bg_02 },
-        ["TelescopePreviewTitle"] = { bg = colors.blue_01, fg = colors.fg_15 },
+        ["TelescopePreviewBorder"] = {
+            bg = config.transparent_background and colors.none or colors.bg_06,
+            fg = config.transparent_background and colors.fg_03 or colors.bg_06,
+        },
+        ["TelescopePreviewNormal"] = { bg = config.transparent_background and colors.none or colors.bg_06 },
+        ["TelescopePreviewTitle"] = {
+            bg = config.transparent_background and colors.none or colors.bg_06,
+            fg = colors.fg_06,
+        },
 
         -- Telescope Prompt
-        ["TelescopePromptBorder"] = { bg = colors.bg_07, fg = colors.bg_07 },
-        ["TelescopePromptCounter"] = { fg = colors.bg_13 },
-        ["TelescopePromptNormal"] = { bg = colors.bg_07, fg = colors.bg_13 },
-        ["TelescopePromptTitle"] = { bg = colors.blue_01, fg = colors.fg_15 },
+        ["TelescopePromptBorder"] = {
+            bg = config.transparent_background and colors.none or colors.bg_04,
+            fg = config.transparent_background and colors.fg_11 or colors.bg_04,
+        },
+        ["TelescopePromptCounter"] = { fg = colors.fg_06 },
+        ["TelescopePromptNormal"] = {
+            bg = config.transparent_background and colors.none or colors.bg_04,
+            fg = colors.fg_06,
+        },
+        ["TelescopePromptTitle"] = {
+            bg = config.transparent_background and colors.none or colors.bg_04,
+            fg = colors.fg_06,
+        },
 
         -- Telescope Results
-        ["TelescopeResultsBorder"] = { bg = colors.bg_05, fg = colors.bg_05 },
-        ["TelescopeResultsNormal"] = { bg = colors.bg_05 },
-        ["TelescopeResultsTitle"] = { bg = colors.blue_01, fg = colors.fg_15 },
+        ["TelescopeResultsBorder"] = {
+            bg = config.transparent_background and colors.none or colors.bg_07,
+            fg = config.transparent_background and colors.fg_06 or colors.bg_07,
+        },
+        ["TelescopeResultsNormal"] = {
+            bg = config.transparent_background and colors.none or colors.bg_07,
+            fg = colors.fg_06,
+        },
+        ["TelescopeResultsTitle"] = {
+            bg = config.transparent_background and colors.none or colors.bg_07,
+            fg = colors.fg_06,
+        },
 
         -- Telescope Selection
-        ["TelescopeSelection"] = { bg = colors.blue_02, fg = colors.fg_15 },
+        ["TelescopeSelection"] = { bg = colors.bg_06, fg = colors.fg_06 },
 
         ------------------------------------------------------------------------------------------
 
@@ -501,51 +460,51 @@ function M.get(config)
 
         ["CmpDoc"] = {
             bg = config.transparent_background and colors.none or colors.bg,
-            fg = colors.fg,
+            -- fg = colors.fg,
         },
         ["CmpDocBorder"] = {
             bg = config.transparent_background and colors.none or colors.bg,
-            fg = colors.bg_12,
+            fg = colors.fg_08,
         },
-        ["CmpItemAbbrDeprecated"] = { fg = colors.fg_14, strikethrough = true },
+        ["CmpItemAbbrDeprecated"] = { fg = colors.fg, strikethrough = true },
         ["CmpItemAbbrMatch"] = { fg = colors.blue_07 },
-        ["CmpItemKind"] = { fg = colors.fg_14 },
-        ["CmpItemKindClass"] = { fg = colors.orange_02 },
+        ["CmpItemKind"] = { fg = colors.fg },
+        ["CmpItemKindClass"] = { fg = colors.fg_03 },
         ["CmpItemKindColor"] = { fg = colors.fg },
-        ["CmpItemKindConstant"] = { fg = colors.fg_14 },
-        ["CmpItemKindConstructor"] = { fg = colors.purple_01 },
-        ["CmpItemKindEnum"] = { fg = colors.orange_02 },
-        ["CmpItemKindEnumMember"] = { fg = colors.blue_14 },
-        ["CmpItemKindEvent"] = { fg = colors.fg_14 },
-        ["CmpItemKindField"] = { fg = colors.blue_14 },
-        ["CmpItemKindFile"] = { fg = colors.fg_14 },
+        ["CmpItemKindConstant"] = { fg = colors.cyan_02 },
+        ["CmpItemKindConstructor"] = { fg = colors.fg_03 },
+        ["CmpItemKindEnum"] = { fg = colors.fg_03 },
+        ["CmpItemKindEnumMember"] = { fg = colors.orange_01 },
+        ["CmpItemKindEvent"] = { fg = colors.fg },
+        ["CmpItemKindField"] = { fg = colors.fg },
+        ["CmpItemKindFile"] = { fg = colors.cyan_01 },
         ["CmpItemKindFolder"] = { fg = colors.yellow_02 },
         ["CmpItemKindFunction"] = { fg = colors.purple_01 },
-        ["CmpItemKindInterface"] = { fg = colors.blue_14 },
-        ["CmpItemKindKeyword"] = { fg = colors.fg_14 },
+        ["CmpItemKindInterface"] = { fg = colors.fg_03 },
+        ["CmpItemKindKeyword"] = { fg = colors.red_01 },
         ["CmpItemKindMethod"] = { fg = colors.purple_01 },
-        ["CmpItemKindModule"] = { fg = colors.fg_14 },
-        ["CmpItemKindOperator"] = { fg = colors.fg_14 },
-        ["CmpItemKindProperty"] = { fg = colors.blue_14 },
-        ["CmpItemKindReference"] = { fg = colors.fg_14 },
-        ["CmpItemKindSnippet"] = { fg = colors.fg_14 },
-        ["CmpItemKindSnippetFunction"] = { fg = colors.fg_14 },
-        ["CmpItemKindSnippetStruct"] = { fg = colors.fg_14 },
-        ["CmpItemKindStruct"] = { fg = colors.fg_14 },
-        ["CmpItemKindText"] = { fg = colors.fg_14 },
-        ["CmpItemKindTypeParameter"] = { fg = colors.fg_14 },
-        ["CmpItemKindUnit"] = { fg = colors.fg_14 },
-        ["CmpItemKindValue"] = { fg = colors.orange_02 },
-        ["CmpItemKindVariable"] = { fg = colors.blue_14 },
+        ["CmpItemKindModule"] = { fg = colors.fg },
+        ["CmpItemKindOperator"] = { fg = colors.red_01 },
+        ["CmpItemKindProperty"] = { fg = colors.fg },
+        ["CmpItemKindReference"] = { fg = colors.fg },
+        ["CmpItemKindSnippet"] = { fg = colors.fg },
+        ["CmpItemKindSnippetFunction"] = { fg = colors.purple_01 },
+        ["CmpItemKindSnippetStruct"] = { fg = colors.fg_03 },
+        ["CmpItemKindStruct"] = { fg = colors.fg_03 },
+        ["CmpItemKindText"] = { fg = colors.cyan_01 },
+        ["CmpItemKindTypeParameter"] = { fg = colors.fg_03 },
+        ["CmpItemKindUnit"] = { fg = colors.fg },
+        ["CmpItemKindValue"] = { fg = colors.fg },
+        ["CmpItemKindVariable"] = { fg = colors.fg },
         ["CmpMenu"] = {
             bg = config.transparent_background and colors.none or colors.bg,
             fg = colors.fg,
         },
         ["CmpMenuBorder"] = {
             bg = config.transparent_background and colors.none or colors.bg,
-            fg = colors.bg_12,
+            fg = colors.fg_08,
         },
-        ["CmpMenuSel"] = { bg = colors.blue_02, fg = colors.fg_15 },
+        ["CmpMenuSel"] = { bg = colors.blue_02, fg = colors.fg },
 
         ------------------------------------------------------------------------------------------
 
@@ -579,7 +538,7 @@ function M.get(config)
         -- nvim-tree/nvim-tree.lua
 
         ["NvimTreeClosedFolderIcon"] = { link = "NvimTreeFolderIcon" },
-        ["NvimTreeCursorLine"] = { bg = config.transparent_background and colors.none or colors.bg_06 },
+        ["NvimTreeCursorLine"] = { bg = config.transparent_background and colors.none or colors.bg_02 },
         ["NvimTreeFolderIcon"] = { fg = colors.yellow_02 },
         ["NvimTreeFolderName"] = { fg = colors.fg },
         ["NvimTreeGitDeleted"] = { fg = git.status.deleted },
@@ -601,7 +560,7 @@ function M.get(config)
         ["NvimTreeOpenedFile"] = { fg = colors.fg },
         ["NvimTreeOpenedFolderIcon"] = { link = "NvimTreeFolderIcon" },
         ["NvimTreeOpenedFolderName"] = { fg = colors.fg },
-        ["NvimTreeRootFolder"] = { fg = colors.fg_14 },
+        ["NvimTreeRootFolder"] = { fg = colors.fg },
         ["NvimTreeWinSeparator"] = {
             bg = config.transparent_background and colors.none or colors.bg,
             fg = colors.bg,
@@ -611,48 +570,30 @@ function M.get(config)
 
         -- akinsho/toggleterm.nvim
 
-        ["ToggleTermNormalFloat"] = { bg = colors.bg_02 },
-        ["ToggleTermFloatBorder"] = { bg = colors.bg_02, fg = colors.bg_02 },
+        ["ToggleTermNormalFloat"] = { bg = colors.bg_09 },
+        ["ToggleTermFloatBorder"] = { bg = colors.bg_09, fg = colors.bg_09 },
 
         ------------------------------------------------------------------------------------------
 
         -- lukas-reineke/indent-blankline.nvim
 
-        ["IndentBlanklineChar"] = { fg = colors.bg_08, bg = colors.none },
-        ["IndentBlanklineContextChar"] = { fg = colors.bg_12, bg = colors.none },
+        ["IndentBlanklineChar"] = { fg = colors.fg_07, bg = colors.none },
+        ["IndentBlanklineContextChar"] = { fg = colors.fg_08, bg = colors.none },
 
         ------------------------------------------------------------------------------------------
 
         -- goolord/alpha-nvim
-        ["AlphaButton"] = { fg = colors.blue_09 },
-        ["AlphaHeader"] = { fg = colors.blue_10 },
-        ["AlphaShorcut"] = { fg = colors.fg_07 },
+        ["AlphaButton"] = { fg = colors.fg },
+        ["AlphaHeader"] = { fg = colors.red_01 },
+        ["AlphaShorcut"] = { fg = colors.fg_06 },
 
         ------------------------------------------------------------------------------------------
 
         -- folke/lazy.nvim
 
-        ["LazyButton"] = { bg = colors.blue_04 },
-        ["LazyButtonActive"] = { bg = colors.green_02 },
-        ["LazyComment"] = { fg = colors.fg_07 },
-        ["LazyH1"] = { bg = colors.green_02 },
-
-        ------------------------------------------------------------------------------------------
-
-        -- lua
-
-        ["luaParenError"] = { link = "Normal" },
-
-        ------------------------------------------------------------------------------------------
-
-        -- xml
-
-        ["xmlAttrib"] = { link = "Variable" },
-        ["xmlProcessingDelim"] = { fg = colors.fg_05 },
-        ["xmlTag"] = { fg = colors.fg_05 },
-        ["xmlTagName"] = { link = "Keyword" },
+        ["LazyProgressTodo"] = { link = "FloatBorder" },
+        ["LazyButtonActive"] = { link = "LazyH1" },
     }
 end
 
 return M
-
