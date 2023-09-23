@@ -284,7 +284,7 @@ function M.get(config)
         -- Telescope Preview
         ["TelescopePreviewBorder"] = {
             bg = config.transparent_background and colors.none or colors.bg_06,
-            fg = config.transparent_background and colors.fg_03 or colors.bg_06,
+            fg = config.transparent_background and colors.fg_06 or colors.bg_06,
         },
         ["TelescopePreviewNormal"] = { bg = config.transparent_background and colors.none or colors.bg_06 },
         ["TelescopePreviewTitle"] = {
@@ -295,7 +295,7 @@ function M.get(config)
         -- Telescope Prompt
         ["TelescopePromptBorder"] = {
             bg = config.transparent_background and colors.none or colors.bg_04,
-            fg = config.transparent_background and colors.fg_11 or colors.bg_04,
+            fg = config.transparent_background and colors.fg_06 or colors.bg_04,
         },
         ["TelescopePromptCounter"] = { fg = colors.fg_06 },
         ["TelescopePromptNormal"] = {
