@@ -59,7 +59,7 @@ function M.get(config)
         ["Folded"] = { bg = colors.blue_05 },
         ["FloatBorder"] = {
             bg = config.transparent_background and colors.none or colors.bg_09,
-            fg = config.transparent_background and colors.fg_03 or colors.bg_09,
+            fg = config.transparent_background and colors.fg_06 or colors.bg_09,
         },
         ["lCursor"] = { bg = colors.bg, fg = colors.fg },
         ["LineNr"] = {
