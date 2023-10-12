@@ -20,7 +20,8 @@ function M.get(config)
             change = colors.yellow_01,
         },
         status = {
-            ignored = colors.fg_05,
+            -- ignored = colors.fg_05,
+            ignored = colors.fg_07,
             untracked = colors.green_01,
             staged = colors.green_01,
             deleted = colors.red_02,
@@ -40,8 +41,11 @@ function M.get(config)
         ["Conceal"] = { bg = colors.bg_05 },
         ["Cursor"] = { bg = colors.bg, fg = colors.fg },
         ["CursorIM"] = { bg = colors.bg, fg = colors.fg },
+        -- ["CursorLine"] = {
+        --     bg = config.transparent_background and colors.none or (config.cursorline and colors.bg_04 or colors.none),
+        -- },
         ["CursorLine"] = {
-            bg = config.transparent_background and colors.none or (config.cursorline and colors.bg_04 or colors.none),
+            bg = (config.cursorline and colors.bg_04 or colors.none),
         },
         ["CursorLineNr"] = {
             bg = config.transparent_background and colors.none or (config.cursorline and colors.bg_04 or colors.none),
@@ -78,7 +82,7 @@ function M.get(config)
         ["SpellLocal"] = { sp = colors.blue_11, undercurl = config.undercurl and term_supports_undercurl() },
         ["SpellRare"] = { sp = colors.green_05, undercurl = config.undercurl and term_supports_undercurl() },
         ["StatusLine"] = { bg = colors.none },
-        ["TermCursor"] = { bg = colors.fg_14, fg = colors.bg_01 },
+        ["TermCursor"] = { bg = colors.fg, fg = colors.bg },
         ["Title"] = { fg = colors.fg_15 },
         ["Visual"] = { bg = colors.blue_02 },
         ["WarningMsg"] = { fg = diagnostic.warn },
@@ -92,7 +96,7 @@ function M.get(config)
         ["Pmenu"] = { bg = colors.bg_05, fg = colors.fg_14 },
         ["PmenuSbar"] = { bg = colors.bg_05 },
         ["PmenuSel"] = { bg = colors.blue_02, fg = colors.fg_15 },
-        ["PmenuThumb"] = { bg = colors.bg_11 },
+        ["PmenuThumb"] = { bg = colors.bg_06 },
 
         ------------------------------------------------------------------------------------------
 
@@ -458,16 +462,18 @@ function M.get(config)
 
         -- hrsh7th/nvim-cmp
 
-        ["CmpDoc"] = {
-            bg = config.transparent_background and colors.none or colors.bg,
-            -- fg = colors.fg,
-        },
+        -- ["CmpDoc"] = {
+        --     bg = config.transparent_background and colors.none or colors.bg,
+        --     -- fg = colors.fg,
+        -- },
         ["CmpDocBorder"] = {
             bg = config.transparent_background and colors.none or colors.bg,
-            fg = colors.fg_08,
+            fg = colors.fg_06,
         },
+        -- ["CmpItemAbbr"] = { fg = colors.fg, strikethrough = true },
         ["CmpItemAbbrDeprecated"] = { fg = colors.fg, strikethrough = true },
         ["CmpItemAbbrMatch"] = { fg = colors.blue_07 },
+        ["CmpItemAbbrMatchFuzzy"] = { fg = colors.blue_07 },
         ["CmpItemKind"] = { fg = colors.fg },
         ["CmpItemKindClass"] = { fg = colors.fg_03 },
         ["CmpItemKindColor"] = { fg = colors.fg },
@@ -496,15 +502,16 @@ function M.get(config)
         ["CmpItemKindUnit"] = { fg = colors.fg },
         ["CmpItemKindValue"] = { fg = colors.fg },
         ["CmpItemKindVariable"] = { fg = colors.fg },
-        ["CmpMenu"] = {
-            bg = config.transparent_background and colors.none or colors.bg,
-            fg = colors.fg,
-        },
+        ["CmpItemMenu"] = { fg = colors.fg },
+        -- ["CmpMenu"] = {
+        --     bg = config.transparent_background and colors.none or colors.bg,
+        --     fg = colors.fg,
+        -- },
         ["CmpMenuBorder"] = {
             bg = config.transparent_background and colors.none or colors.bg,
-            fg = colors.fg_08,
+            fg = colors.fg_06,
         },
-        ["CmpMenuSel"] = { bg = colors.blue_02, fg = colors.fg },
+        ["CmpMenuSel"] = { bg = colors.bg_05, fg = colors.fg },
 
         ------------------------------------------------------------------------------------------
 
@@ -540,14 +547,14 @@ function M.get(config)
         ["NvimTreeClosedFolderIcon"] = { link = "NvimTreeFolderIcon" },
         ["NvimTreeCursorLine"] = { bg = config.transparent_background and colors.none or colors.bg_02 },
         ["NvimTreeFolderIcon"] = { fg = colors.yellow_02 },
-        ["NvimTreeFolderName"] = { fg = colors.fg },
+        ["NvimTreeFolderName"] = { fg = colors.fg_03 },
         ["NvimTreeGitDeleted"] = { fg = git.status.deleted },
         ["NvimTreeGitDirty"] = { fg = git.status.modified },
         ["NvimTreeGitIgnored"] = { fg = git.status.ignored },
         ["NvimTreeGitNew"] = { fg = git.status.untracked },
         ["NvimTreeGitRenamed"] = { fg = git.status.untracked },
         ["NvimTreeGitStaged"] = { fg = git.status.staged },
-        ["NvimTreeIndentMarker"] = { fg = colors.fg_03 },
+        ["NvimTreeIndentMarker"] = { fg = colors.fg_07 },
         ["NvimTreeLspDiagnosticsError"] = { fg = diagnostic.error },
         ["NvimTreeLspDiagnosticsHint"] = { fg = diagnostic.hint },
         ["NvimTreeLspDiagnosticsInformation"] = { fg = diagnostic.info },
@@ -556,10 +563,11 @@ function M.get(config)
         ["NvimTreeNormal"] = {
             bg = config.transparent_background and colors.none
                 or (config.nvim_tree_darker and colors.bg_01 or colors.bg),
+            fg = colors.fg_06,
         },
-        ["NvimTreeOpenedFile"] = { fg = colors.fg },
+        ["NvimTreeOpenedFile"] = { fg = colors.fg_03 },
         ["NvimTreeOpenedFolderIcon"] = { link = "NvimTreeFolderIcon" },
-        ["NvimTreeOpenedFolderName"] = { fg = colors.fg },
+        ["NvimTreeOpenedFolderName"] = { fg = colors.fg_03 },
         ["NvimTreeRootFolder"] = { fg = colors.fg },
         ["NvimTreeWinSeparator"] = {
             bg = config.transparent_background and colors.none or colors.bg,
@@ -570,8 +578,8 @@ function M.get(config)
 
         -- akinsho/toggleterm.nvim
 
-        ["ToggleTermNormalFloat"] = { bg = colors.bg_09 },
-        ["ToggleTermFloatBorder"] = { bg = colors.bg_09, fg = colors.bg_09 },
+        ["ToggleTermNormalFloat"] = { link = "NormalFloat" },
+        ["ToggleTermFloatBorder"] = { link = "FloatBorder" },
 
         ------------------------------------------------------------------------------------------
 
